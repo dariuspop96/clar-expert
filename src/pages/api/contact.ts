@@ -20,6 +20,8 @@ export const POST: APIRoute = async ({ request, locals, redirect }) => {
     });
   }
 
+  const env = (locals as { runtime?: { env?: Record<string, string> } }).runtime?.env ?? (import.meta.env as unknown as Record<string, string>);
+
   try {
     await sendMail(
       {
@@ -33,7 +35,7 @@ export const POST: APIRoute = async ({ request, locals, redirect }) => {
           ['Limba', form.locale],
         ],
       },
-      (locals as { runtime?: { env?: Record<string, string> } }).runtime?.env ?? (process.env as Record<string, string>),
+      env,
     );
   } catch (error) {
     console.error('[contact]', error);

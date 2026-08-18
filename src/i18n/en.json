@@ -105,7 +105,7 @@
     },
     "team": {
       "title": "Team",
-      "desc": "[TO BE COMPLETED: team presentation — name, role and experience, if you want it on the site]"
+      "desc": "A dedicated accountant for your company, who knows your business and responds directly — not a call centre."
     }
   },
   "pricing": {
@@ -198,7 +198,7 @@
     "registeredLabel": "Registered office (legal address)",
     "hoursLabel": "Office hours",
     "hoursDays": "Monday – Friday",
-    "hoursTodo": "[TO BE COMPLETED: office hours, e.g. 09:00 – 17:00]",
+    "hoursTodo": "09:00 – 18:00",
     "mapTitle": "Office map",
     "formTitle": "Send us a message",
     "fields": {

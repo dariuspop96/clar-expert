@@ -105,7 +105,7 @@
     },
     "team": {
       "title": "Équipe",
-      "desc": "[À COMPLÉTER : présentation de l'équipe — nom, rôle et expérience, si vous souhaitez les afficher sur le site]"
+      "desc": "Un comptable dédié à votre entreprise, qui connaît votre activité et vous répond directement — pas un centre d'appels."
     }
   },
   "pricing": {
@@ -198,7 +198,7 @@
     "registeredLabel": "Siège social (adresse légale)",
     "hoursLabel": "Horaires",
     "hoursDays": "Lundi – Vendredi",
-    "hoursTodo": "[À COMPLÉTER : horaires de travail, ex. 09h00 – 17h00]",
+    "hoursTodo": "09h00 – 18h00",
     "mapTitle": "Plan d'accès",
     "formTitle": "Envoyez-nous un message",
     "fields": {

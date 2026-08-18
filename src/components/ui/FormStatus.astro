@@ -5,49 +5,75 @@ interface Props {
   variant?: 'success' | 'error';
   title: string;
   body: string;
-  hidden?: boolean;
   id?: string;
 }
 
-const { variant = 'success', title, body, hidden = true, id } = Astro.props;
+const { variant = 'success', title, body, id } = Astro.props;
 ---
 
-<div class:list={['status', `status--${variant}`]} id={id} hidden={hidden} role="status" aria-live="polite">
-  <span class="status__icon">
-    <Icon name={variant === 'success' ? 'check' : 'close'} size={30} stroke={2} />
+<div class:list={['toast', `toast--${variant}`]} id={id} role="status" aria-live="polite">
+  <span class="toast__icon">
+    <Icon name={variant === 'success' ? 'check' : 'close'} size={20} stroke={2.2} />
   </span>
-  <h3 class="status__title">{title}</h3>
-  <p class="status__body">{body}</p>
+  <div>
+    <strong class="toast__title">{title}</strong>
+    <p class="toast__body">{body}</p>
+  </div>
 </div>
 
-<style>
-  .status {
+<style is:global>
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 280px;
-    height: 100%;
-    text-align: center;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 400px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--c-surface);
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.12), 0 2px 8px rgb(0 0 0 / 0.08);
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
   }
-  .status[hidden] { display: none; }
 
-  .status__icon {
+  .toast.toast--visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .toast__icon {
     display: inline-flex;
+    flex: none;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
   }
-  .status--success .status__icon { background: #E3F3EA; color: #3E9C63; }
-  .status--error .status__icon { background: #FBEAE7; color: #B8452B; }
+  .toast--success .toast__icon { background: #E3F3EA; color: #3E9C63; }
+  .toast--error .toast__icon { background: #FBEAE7; color: #B8452B; }
 
-  .status__title { margin-top: 20px; font-size: 24px; }
-  .status__body {
-    margin: 10px 0 0;
-    max-width: 340px;
-    font-size: 15px;
+  .toast__title { display: block; font-size: 15px; }
+  .toast__body {
+    margin: 2px 0 0;
+    font-size: 13.5px;
     color: var(--c-muted);
+  }
+
+  @media (max-width: 480px) {
+    .toast {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      max-width: none;
+    }
   }
 </style>

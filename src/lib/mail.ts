@@ -61,6 +61,6 @@ export function readForm(data: FormData, fields: string[]) {
   return out;
 }
 
-export const isSpam = (data: FormData) => Boolean(data.get('website'));
+export const isSpam = (data: FormData) => Boolean(data.get('fax_number'));
 
 export const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);

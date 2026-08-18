@@ -38,8 +38,7 @@ const vatOptions = Object.values(dict.quote.vatOptions);
       <input type="hidden" name="locale" value={locale} />
       {/* Honeypot: câmp invizibil pentru boți */}
       <div class="hp" aria-hidden="true">
-        <label for="quote-website">Website</label>
-        <input id="quote-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+        <textarea name="fax_number" tabindex="-1" autocomplete="new-password"></textarea>
       </div>
 
       <div class="form__row">
@@ -80,11 +79,11 @@ const vatOptions = Object.values(dict.quote.vatOptions);
         <a href={localizePath('/privacy', locale)}>{t('quote.consentLink')}</a>.
       </p>
     </form>
-
-    <FormStatus id="quote-success" variant="success" title={t('quote.successTitle')} body={t('quote.successBody')} />
-    <FormStatus id="quote-error" variant="error" title={t('quote.errorTitle')} body={t('quote.errorBody')} />
   </div>
 </div>
+
+<FormStatus id="quote-success" variant="success" title={t('quote.successTitle')} body={t('quote.successBody')} />
+<FormStatus id="quote-error" variant="error" title={t('quote.errorTitle')} body={t('quote.errorBody')} />
 
 <style>
   .quote {

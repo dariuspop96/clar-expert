@@ -25,20 +25,23 @@ const { locale } = Astro.props;
 <Footer locale={locale} />
 
 <script>
-  // Trimitere asincronă cu fallback: fără JS, formularul face POST normal.
+  function showToast(kind: string, variant: 'success' | 'error') {
+    const el = document.getElementById(`${kind}-${variant}`);
+    if (!el) return;
+    el.classList.add('toast--visible');
+    setTimeout(() => el.classList.remove('toast--visible'), 5000);
+  }
+
   document.querySelectorAll<HTMLFormElement>('[data-form]').forEach((form) => {
     const kind = form.action.includes('/quote') ? 'quote' : 'contact';
-    const success = document.getElementById(`${kind}-success`);
-    const error = document.getElementById(`${kind}-error`);
     const submit = form.querySelector<HTMLButtonElement>('[data-submit]');
     const originalLabel = submit?.textContent ?? '';
 
     form.addEventListener('submit', async (event) => {
-      if (!form.reportValidity()) return;
       event.preventDefault();
+      if (!form.reportValidity()) return;
 
       if (submit) { submit.disabled = true; submit.textContent = '…'; }
-      if (error) error.hidden = true;
 
       try {
         const response = await fetch(form.action, {
@@ -47,10 +50,11 @@ const { locale } = Astro.props;
           body: new FormData(form),
         });
         if (!response.ok) throw new Error(String(response.status));
-        form.hidden = true;
-        if (success) success.hidden = false;
+        form.reset();
+        showToast(kind, 'success');
       } catch {
-        if (error) error.hidden = false;
+        showToast(kind, 'error');
+      } finally {
         if (submit) { submit.disabled = false; submit.textContent = originalLabel; }
       }
     });

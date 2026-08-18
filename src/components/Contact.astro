@@ -74,55 +74,52 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(company.offic
         </li>
       </ul>
 
-      <div class="contact__right">
-        <div class="panel-card">
-          <form class="form" data-form action="/api/contact" method="POST" novalidate>
-            <input type="hidden" name="locale" value={locale} />
-            <div class="hp" aria-hidden="true">
-              <label for="contact-website">Website</label>
-              <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off" />
-            </div>
+      <div class="panel-card">
+        <form class="form" data-form action="/api/contact" method="POST" novalidate>
+          <input type="hidden" name="locale" value={locale} />
+          <div class="hp" aria-hidden="true">
+            <textarea name="fax_number" tabindex="-1" autocomplete="new-password"></textarea>
+          </div>
 
-            <h3 class="form__title">{t('contact.formTitle')}</h3>
+          <h3 class="form__title">{t('contact.formTitle')}</h3>
 
-            <div class="form__row">
-              <FormField label={t('contact.fields.name')} name="name" required />
-              <FormField label={t('contact.fields.email')} name="email" type="email" required />
-            </div>
+          <div class="form__row">
+            <FormField label={t('contact.fields.name')} name="name" required />
+            <FormField label={t('contact.fields.email')} name="email" type="email" required />
+          </div>
 
-            <FormField label={t('contact.fields.phone')} name="phone" type="tel" />
-            <FormField
-              label={t('contact.fields.message')}
-              name="message"
-              type="textarea"
-              rows={4}
-              required
-              placeholder={t('contact.fields.messagePlaceholder')}
-            />
+          <FormField label={t('contact.fields.phone')} name="phone" type="tel" />
+          <FormField
+            label={t('contact.fields.message')}
+            name="message"
+            type="textarea"
+            rows={4}
+            required
+            placeholder={t('contact.fields.messagePlaceholder')}
+          />
 
-            <Button type="submit" variant="full" data-submit>{t('contact.submit')}</Button>
+          <Button type="submit" variant="full" data-submit>{t('contact.submit')}</Button>
 
-            <p class="form__consent">
-              {t('quote.consent')}{' '}
-              <a href={localizePath('/privacy', locale)}>{t('quote.consentLink')}</a>.
-            </p>
-          </form>
-
-          <FormStatus id="contact-success" variant="success" title={t('contact.successTitle')} body={t('contact.successBody')} />
-          <FormStatus id="contact-error" variant="error" title={t('quote.errorTitle')} body={t('quote.errorBody')} />
-        </div>
-
-        <iframe
-          class="map"
-          src={mapSrc}
-          title={t('contact.mapTitle')}
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+          <p class="form__consent">
+            {t('quote.consent')}{' '}
+            <a href={localizePath('/privacy', locale)}>{t('quote.consentLink')}</a>.
+          </p>
+        </form>
       </div>
     </div>
+
+    <iframe
+      class="map"
+      src={mapSrc}
+      title={t('contact.mapTitle')}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </div>
 </section>
+
+<FormStatus id="contact-success" variant="success" title={t('contact.successTitle')} body={t('contact.successBody')} />
+<FormStatus id="contact-error" variant="error" title={t('quote.errorTitle')} body={t('quote.errorBody')} />
 
 <style>
   .contact {
@@ -197,9 +194,9 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(company.offic
     border-top: 1px solid #EEF3F6;
   }
 
-  .contact__right { display: flex; flex-direction: column; gap: 16px; }
-
   .panel-card {
+    display: flex;
+    flex-direction: column;
     padding: 34px;
     border: 1px solid var(--c-border);
     border-radius: 18px;
@@ -219,8 +216,8 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(company.offic
 
   .map {
     width: 100%;
-    min-height: 200px;
-    flex: 1;
+    height: 280px;
+    margin-top: 36px;
     border: 1px solid var(--c-border);
     border-radius: var(--r-lg);
   }

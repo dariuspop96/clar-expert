@@ -105,7 +105,7 @@
     },
     "team": {
       "title": "Echipa",
-      "desc": "[DE COMPLETAT: prezentare echipă — nume, rol și experiență, dacă doriți să apară pe site]"
+      "desc": "Un contabil dedicat firmei tale, care îți cunoaște activitatea și îți răspunde direct — nu un call center."
     }
   },
   "pricing": {
@@ -198,7 +198,7 @@
     "registeredLabel": "Sediu social (adresă legală)",
     "hoursLabel": "Program",
     "hoursDays": "Luni – Vineri",
-    "hoursTodo": "[DE COMPLETAT: program de lucru, ex. 09:00 – 17:00]",
+    "hoursTodo": "09:00 – 18:00",
     "mapTitle": "Harta sediului",
     "formTitle": "Trimite-ne un mesaj",
     "fields": {

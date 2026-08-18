@@ -1,0 +1,85 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  type?: 'text' | 'email' | 'tel' | 'select' | 'textarea';
+  placeholder?: string;
+  required?: boolean;
+  rows?: number;
+  options?: string[];
+}
+
+const {
+  label,
+  name,
+  type = 'text',
+  placeholder,
+  required = false,
+  rows = 3,
+  options = [],
+} = Astro.props;
+
+const id = `field-${name}`;
+---
+
+<div class="field">
+  <label class="field__label" for={id}>
+    {label}{required && <span class="field__req" aria-hidden="true">*</span>}
+  </label>
+
+  {
+    type === 'select' ? (
+      <select class="field__control" id={id} name={name} required={required}>
+        {options.map((option) => (
+          <option value={option}>{option}</option>
+        ))}
+      </select>
+    ) : type === 'textarea' ? (
+      <textarea
+        class="field__control"
+        id={id}
+        name={name}
+        rows={rows}
+        placeholder={placeholder}
+        required={required}
+      />
+    ) : (
+      <input
+        class="field__control"
+        id={id}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        required={required}
+        autocomplete={type === 'email' ? 'email' : type === 'tel' ? 'tel' : 'on'}
+      />
+    )
+  }
+</div>
+
+<style>
+  .field { display: flex; flex-direction: column; gap: 6px; }
+
+  .field__label {
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: #4B535A;
+  }
+  .field__req { color: var(--c-brand-dark); margin-left: 2px; }
+
+  .field__control {
+    padding: 12px 13px;
+    border: 1px solid var(--c-border-strong);
+    border-radius: var(--r-md);
+    background: var(--c-surface-field);
+    color: var(--c-heading);
+    font-size: var(--fs-card);
+    min-height: 44px;
+  }
+  .field__control:focus-visible {
+    outline: 2px solid var(--c-brand);
+    outline-offset: 1px;
+    border-color: var(--c-brand);
+  }
+  textarea.field__control { resize: vertical; }
+</style>

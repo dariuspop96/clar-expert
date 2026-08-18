@@ -1,0 +1,64 @@
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  margin: 0;
+  background: var(--c-surface);
+  color: var(--c-body);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.005em;
+  color: var(--c-heading);
+}
+
+a { color: var(--c-brand-dark); text-decoration: none; }
+a:hover { color: var(--c-brand); }
+
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+::selection { background: var(--c-brand); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Utilitare partajate */
+.container {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--content-pad);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-brand-dark);
+}
+
+.section-title { font-size: var(--fs-h2); margin-top: 14px; }
+.section-intro { font-size: var(--fs-body); color: var(--c-body); margin: 16px 0 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}

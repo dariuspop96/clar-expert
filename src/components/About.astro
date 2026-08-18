@@ -1,0 +1,95 @@
+---
+import Card from './ui/Card.astro';
+import SectionHeader from './ui/SectionHeader.astro';
+import { type IconName } from './ui/Icon.astro';
+import { useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const chips = ['chipCeccar', 'chipLocation', 'chipFounded'] as const;
+
+const cards: { key: string; icon: IconName; dark?: boolean }[] = [
+  { key: 'mission', icon: 'star' },
+  { key: 'values', icon: 'shield' },
+  { key: 'method', icon: 'briefcase' },
+  { key: 'team', icon: 'team', dark: true },
+];
+---
+
+<section class="about" id="despre">
+  <div class="container about__grid">
+    <div>
+      <SectionHeader label={t('about.label')} title={t('about.title')} max="100%">
+        <p class="about__body">{t('about.body')}</p>
+        <ul class="chips">
+          {chips.map((chip) => <li class="chip">{t(`about.${chip}`)}</li>)}
+        </ul>
+      </SectionHeader>
+    </div>
+
+    <div class="about__cards">
+      {
+        cards.map(({ key, icon, dark }) => (
+          <Card icon={icon} dark={dark} title={t(`about.${key}.title`)}>
+            {t(`about.${key}.desc`)}
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    margin-top: 70px;
+    background: var(--c-surface-alt);
+  }
+
+  .about__grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+    padding-block: 84px;
+  }
+
+  .about__body {
+    margin: 18px 0 0;
+    font-size: var(--fs-body);
+    color: var(--c-body);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .chip {
+    padding: 9px 15px;
+    border: 1px solid #DCE6EC;
+    border-radius: var(--r-pill);
+    background: var(--c-surface);
+    color: var(--c-heading);
+    font-size: var(--fs-small);
+  }
+
+  .about__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  @media (max-width: 960px) {
+    .about__grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 560px) {
+    .about__cards { grid-template-columns: 1fr; }
+  }
+</style>

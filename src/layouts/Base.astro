@@ -1,0 +1,105 @@
+---
+import '~/styles/global.css';
+import { company } from '~/data/company';
+import {
+  alternates,
+  localeTags,
+  useTranslations,
+  type Locale,
+} from '~/i18n/utils';
+
+interface Props {
+  locale: Locale;
+  /** Calea fără prefix de limbă, ex. '/' sau '/privacy' */
+  path: string;
+  title?: string;
+  description?: string;
+}
+
+const { locale, path, title, description } = Astro.props;
+const t = useTranslations(locale);
+
+const pageTitle = title ?? t('meta.title');
+const pageDescription = description ?? t('meta.description');
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: company.brandName,
+  legalName: company.legalName,
+  vatID: company.vatId,
+  taxID: company.taxId,
+  url: Astro.site?.toString(),
+  email: company.email,
+  telephone: company.phones.map((p) => p.tel),
+  foundingDate: String(company.foundedYear),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: company.office.street,
+    addressLocality: company.office.locality,
+    addressRegion: company.office.district,
+    addressCountry: company.office.country,
+  },
+  areaServed: { '@type': 'Country', name: 'Romania' },
+  ...(company.openingHours ? { openingHours: company.openingHours } : {}),
+};
+---
+
+<!doctype html>
+<html lang={localeTags[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+
+    {
+      alternates(path).map(({ locale: alt, path: altPath }) => (
+        <link rel="alternate" hreflang={localeTags[alt]} href={new URL(altPath, Astro.site)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(path, Astro.site)} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={localeTags[locale].replace('-', '_')} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">{t('nav.skipToContent')}</a>
+    <slot />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -120%);
+    z-index: 100;
+    padding: 10px 18px;
+    background: var(--c-brand);
+    color: #fff;
+    border-radius: 0 0 var(--r-md) var(--r-md);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.18s ease;
+  }
+  .skip-link:focus-visible { transform: translate(-50%, 0); color: #fff; }
+</style>

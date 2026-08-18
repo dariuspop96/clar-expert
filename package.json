@@ -1,0 +1,20 @@
+{
+  "name": "clar-expert",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "wrangler pages dev dist",
+    "deploy": "astro build && wrangler pages deploy dist",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.2.1",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.2.5"
+  },
+  "devDependencies": {
+    "wrangler": "^3.107.0"
+  }
+}

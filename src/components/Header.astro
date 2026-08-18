@@ -1,0 +1,170 @@
+---
+import Button from './ui/Button.astro';
+import Icon from './ui/Icon.astro';
+import LangSwitcher from './LangSwitcher.astro';
+import { company } from '~/data/company';
+import { localizePath, useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props {
+  locale: Locale;
+  path: string;
+}
+
+const { locale, path } = Astro.props;
+const t = useTranslations(locale);
+const home = localizePath('/', locale);
+
+const links = [
+  { href: `${home}#servicii`, label: t('nav.services') },
+  { href: `${home}#despre`, label: t('nav.about') },
+  { href: `${home}#tarife`, label: t('nav.pricing') },
+  { href: `${home}#contact`, label: t('nav.contact') },
+];
+---
+
+<header class="site-header" data-site-header>
+  <div class="container site-header__inner">
+    <a class="brand" href={home}>
+      <img src="/logo.svg" alt={`${company.brandName} — ${company.tagline}`} width="150" height="46" />
+    </a>
+
+    <nav class="nav" aria-label={company.brandName}>
+      <ul class="nav__list">
+        {links.map((link) => <li><a class="nav__link" href={link.href}>{link.label}</a></li>)}
+      </ul>
+      <div class="nav__langs"><LangSwitcher locale={locale} path={path} /></div>
+      <Button href={`${home}#oferta`} variant="primary" size="md">{t('nav.cta')}</Button>
+    </nav>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" data-burger>
+      <span class="visually-hidden">{t('nav.menu')}</span>
+      <Icon name="burger" size={22} stroke={1.8} />
+    </button>
+  </div>
+
+  <div class="mobile" id="mobile-nav" hidden data-mobile-nav>
+    <div class="container mobile__inner">
+      <div class="mobile__langs"><LangSwitcher locale={locale} path={path} size="lg" /></div>
+      <ul class="mobile__list">
+        {links.map((link) => <li><a class="mobile__link" href={link.href}>{link.label}</a></li>)}
+      </ul>
+      <Button href={`${home}#oferta`} variant="full">{t('nav.cta')}</Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-site-header]');
+  const burger = header?.querySelector<HTMLButtonElement>('[data-burger]');
+  const panel = header?.querySelector<HTMLElement>('[data-mobile-nav]');
+
+  const setOpen = (open: boolean) => {
+    if (!burger || !panel) return;
+    burger.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  };
+
+  burger?.addEventListener('click', () => {
+    setOpen(burger.getAttribute('aria-expanded') !== 'true');
+  });
+
+  // Închide la navigare pe ancoră sau la trecerea pe desktop
+  panel?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) setOpen(false);
+  });
+
+  window.matchMedia('(min-width: 961px)').addEventListener('change', (event) => {
+    if (event.matches) setOpen(false);
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(255 255 255 / 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--c-border-header);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 74px;
+  }
+
+  .brand { display: flex; align-items: center; }
+  .brand img { height: 46px; width: auto; }
+
+  .nav { display: flex; align-items: center; gap: 30px; }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav__link { font-size: 14.5px; color: #5A636A; }
+  .nav__link:hover { color: var(--c-brand); }
+
+  .nav__langs {
+    padding-left: 4px;
+    border-left: 1px solid #E0E8EE;
+  }
+
+  .burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 1px solid #D3DDE3;
+    border-radius: 8px;
+    color: var(--c-heading);
+    cursor: pointer;
+  }
+
+  .mobile {
+    background: var(--c-surface);
+    border-top: 1px solid var(--c-border-header);
+  }
+  .mobile[hidden] { display: none; }
+
+  .mobile__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-block: 12px 20px;
+  }
+
+  .mobile__langs {
+    padding-block: 6px 12px;
+    border-bottom: 1px solid #EEF3F6;
+  }
+
+  .mobile__list { margin: 0; padding: 0; list-style: none; }
+
+  .mobile__link {
+    display: block;
+    padding: 11px 4px;
+    border-bottom: 1px solid #EEF3F6;
+    color: var(--c-heading);
+    font-size: 16px;
+  }
+
+  @media (max-width: 960px) {
+    .nav { display: none; }
+    .burger { display: inline-flex; }
+  }
+
+  @media (min-width: 961px) {
+    .mobile { display: none; }
+  }
+</style>

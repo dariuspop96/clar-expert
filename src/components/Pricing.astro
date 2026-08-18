@@ -1,0 +1,137 @@
+---
+import Button from './ui/Button.astro';
+import Icon, { type IconName } from './ui/Icon.astro';
+import SectionHeader from './ui/SectionHeader.astro';
+import { useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const steps: { key: string; icon: IconName }[] = [
+  { key: 'step1', icon: 'chat' },
+  { key: 'step2', icon: 'search' },
+  { key: 'step3', icon: 'declaration' },
+  { key: 'step4', icon: 'check' },
+];
+---
+
+<section class="pricing" id="tarife">
+  <div class="container">
+    <SectionHeader label={t('pricing.label')} title={t('pricing.title')} intro={t('pricing.intro')}>
+      <p class="pricing__badge">{t('pricing.badge')}</p>
+    </SectionHeader>
+
+    <ol class="pricing__grid">
+      {
+        steps.map(({ key, icon }, index) => (
+          <li class="step">
+            <div class="step__head">
+              <span class="step__icon"><Icon name={icon} size={24} /></span>
+              <span class="step__number" aria-hidden="true">{index + 1}</span>
+            </div>
+            <h3 class="step__title">{t(`pricing.${key}.title`)}</h3>
+            <p class="step__desc">{t(`pricing.${key}.desc`)}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="pricing__note">
+      <div>
+        <h3 class="pricing__note-title">{t('pricing.note.title')}</h3>
+        <p class="pricing__note-body">{t('pricing.note.body')}</p>
+      </div>
+      <Button href="#oferta" variant="primary" size="md">{t('pricing.note.cta')}</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing { padding-block: var(--space-section) 30px; }
+
+  .pricing__badge {
+    display: inline-block;
+    margin: 18px 0 0;
+    padding: 8px 14px;
+    border: 1px solid #BFE1F1;
+    border-radius: var(--r-md);
+    background: #E1F1F9;
+    color: #1B6E93;
+    font-size: var(--fs-small);
+  }
+
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid var(--c-border);
+    border-radius: 18px;
+    background: var(--c-surface);
+  }
+
+  .step__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .step__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--c-surface-icon);
+    color: var(--c-brand-dark);
+  }
+
+  .step__number {
+    font-family: var(--font-display);
+    font-size: 34px;
+    line-height: 1;
+    color: #DCE6EC;
+  }
+
+  .step__title { margin-top: 20px; font-size: 19px; }
+  .step__desc { margin: 10px 0 0; font-size: var(--fs-card); color: var(--c-muted); }
+
+  .pricing__note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 36px;
+    padding: 30px 32px;
+    border: 1px solid #DCE6EC;
+    border-radius: 18px;
+    background: var(--c-surface-alt);
+  }
+
+  .pricing__note-title { font-size: 20px; }
+  .pricing__note-body {
+    max-width: 640px;
+    margin: 8px 0 0;
+    font-size: var(--fs-card);
+    color: var(--c-body);
+  }
+
+  @media (max-width: 1080px) {
+    .pricing__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .pricing__grid { grid-template-columns: 1fr; }
+  }
+</style>

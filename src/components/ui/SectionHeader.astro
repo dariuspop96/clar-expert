@@ -1,0 +1,31 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  intro?: string;
+  /** Lățime maximă a blocului de text */
+  max?: string;
+  /** Liniuță decorativă înaintea etichetei (ca în hero) */
+  rule?: boolean;
+}
+
+const { label, title, intro, max = '660px', rule = false } = Astro.props;
+---
+
+<header class="section-header" style={`max-width:${max}`}>
+  <span class="section-label">
+    {rule && <span class="section-label__rule" aria-hidden="true"></span>}
+    {label}
+  </span>
+  <h2 class="section-title">{title}</h2>
+  {intro && <p class="section-intro">{intro}</p>}
+  <slot />
+</header>
+
+<style>
+  .section-label__rule {
+    width: 26px;
+    height: 2px;
+    background: var(--c-brand);
+  }
+</style>

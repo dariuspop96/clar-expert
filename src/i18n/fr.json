@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "title": "Comptabilité et rapports financiers Bucarest | CLAR EXPERT",
+    "description": "Services complets de comptabilité, paie, déclarations fiscales et rapports financiers pour entreprises et particuliers. Membre CECCAR.",
+    "ogAlt": "CLAR EXPERT — comptabilité & reporting"
+  },
+  "nav": {
+    "services": "Services",
+    "about": "À propos",
+    "pricing": "Tarifs",
+    "contact": "Contact",
+    "cta": "Demander un devis",
+    "menu": "Menu",
+    "language": "Langue",
+    "skipToContent": "Aller au contenu"
+  },
+  "hero": {
+    "label": "Expertise comptable & reporting",
+    "title": "Comptabilité et rapports financiers complets pour entreprises et particuliers",
+    "lead": "Nous tenons votre comptabilité à jour, gérons la relation avec l'administration fiscale roumaine (ANAF) et livrons des rapports financiers clairs — du bilan au reporting de gestion et aux rapports de groupe. Vous vous concentrez sur votre activité, nous nous occupons des chiffres.",
+    "ctaPrimary": "Demander un devis",
+    "ctaSecondary": "Voir nos services",
+    "trust": {
+      "ceccar": {
+        "title": "Membre CECCAR",
+        "desc": "Autorisation n° 11817"
+      },
+      "reports": {
+        "title": "Rapports clairs",
+        "desc": "Rapports mensuels faciles à comprendre"
+      },
+      "response": {
+        "title": "Réponse rapide",
+        "desc": "Un contact dédié pour votre entreprise"
+      },
+      "group": {
+        "title": "Expérience groupe",
+        "desc": "Reporting vers les sociétés mères également"
+      }
+    },
+    "card": {
+      "title": "Ce que vous recevez chaque mois",
+      "item1": "Comptabilité tenue à jour",
+      "item2": "Déclarations fiscales déposées dans les délais",
+      "item3": "Rapport financier mensuel, clair",
+      "item4": "Support assuré par de vraies personnes, sans IA"
+    }
+  },
+  "services": {
+    "label": "Services",
+    "title": "Tout ce qui touche à la comptabilité, en un seul endroit",
+    "intro": "Services complets de comptabilité et de reporting pour micro-entreprises, SARL et filiales de groupes.",
+    "featuredBadge": "Notre spécialité",
+    "accounting": {
+      "title": "Comptabilité financière et de gestion",
+      "desc": "Tenue complète de la comptabilité, enregistrement des documents, registres obligatoires et situation financière de l'entreprise, mois après mois."
+    },
+    "payroll": {
+      "title": "Paie et administration du personnel",
+      "desc": "Calcul des salaires, bulletins de paie, contrats de travail et avenants, transmission au REGES et déclaration 112."
+    },
+    "tax": {
+      "title": "Déclarations fiscales et relation avec l'ANAF",
+      "desc": "Préparation et dépôt des déclarations fiscales (TVA, impôt, D112, D394, etc.) et représentation auprès de l'administration fiscale."
+    },
+    "reporting": {
+      "title": "Reporting financier",
+      "desc": "Bilans et états financiers, reporting de gestion et rapports périodiques vers le groupe / la société mère, dans les formats demandés."
+    },
+    "consulting": {
+      "title": "Conseil fiscal",
+      "desc": "Optimisation fiscale légale, analyse d'impact des changements législatifs et accompagnement dans les décisions à impact financier."
+    },
+    "incorporation": {
+      "title": "Création d'entreprise",
+      "desc": "Création de SRL, SRL-D ou PFA : réservation de dénomination, rédaction des actes, dépôt du dossier et conseil au démarrage."
+    },
+    "officeHosting": {
+      "title": "Hébergement de siège social",
+      "desc": "Contrat d'hébergement du siège social pour votre entreprise, avec les documents nécessaires auprès de l'ONRC et la gestion du courrier ANAF."
+    },
+    "onrc": {
+      "title": "Procédures au Registre du Commerce",
+      "desc": "Modifications au Registre du Commerce : objet social, siège, associés, administrateurs, capital social, mentions, suspension ou radiation."
+    }
+  },
+  "about": {
+    "label": "À propos",
+    "title": "Des chiffres justes, de meilleures décisions",
+    "body": "CLAR EXPERT — CL Accounting Reporting SRL — fournit des services de comptabilité et de reporting financier pour les entrepreneurs et les entreprises en Roumanie. Nous mettons l'accent sur la précision, le respect des délais et des rapports que vous comprenez réellement — pas seulement la conformité.",
+    "chipCeccar": "Membre CECCAR — n° 11817",
+    "chipLocation": "Basé à Bucarest, Secteur 1",
+    "chipFounded": "Cabinet agréé depuis 2020",
+    "mission": {
+      "title": "Mission",
+      "desc": "Simplifier le volet financier de votre activité et vous offrir une visibilité réelle sur vos chiffres."
+    },
+    "values": {
+      "title": "Valeurs",
+      "desc": "Intégrité, confidentialité et transparence dans tout ce que nous rapportons et recommandons."
+    },
+    "method": {
+      "title": "Méthode de travail",
+      "desc": "Documents collectés en numérique, comptabilité à jour et un rapport mensuel clair, avec un contact dédié unique."
+    },
+    "team": {
+      "title": "Équipe",
+      "desc": "[À COMPLÉTER : présentation de l'équipe — nom, rôle et expérience, si vous souhaitez les afficher sur le site]"
+    }
+  },
+  "pricing": {
+    "label": "Tarifs",
+    "title": "Comment nous établissons le tarif pour votre entreprise",
+    "intro": "Nous ne travaillons pas avec des forfaits standards. Nous discutons avec vous, comprenons les besoins de votre entreprise et, sur cette base, établissons un devis personnalisé — juste par rapport au volume et à la complexité réelle de votre activité.",
+    "badge": "Devis personnalisé, sans frais cachés",
+    "step1": {
+      "title": "Discussion initiale",
+      "desc": "Dites-nous ce que fait votre entreprise, comment vous travaillez aujourd'hui et ce qui vous pose problème. Pas de longs formulaires — une conversation directe."
+    },
+    "step2": {
+      "title": "Analyse des besoins",
+      "desc": "Nous examinons votre volume de documents, le nombre d'employés, le régime de TVA et les éventuels reportings de groupe."
+    },
+    "step3": {
+      "title": "Devis personnalisé",
+      "desc": "Vous recevez une offre écrite, avec les services inclus et le tarif mensuel, calculé sur la situation réelle de votre entreprise."
+    },
+    "step4": {
+      "title": "Nous commençons la collaboration",
+      "desc": "Nous signons le contrat, reprenons la comptabilité et définissons le flux de documents et les échéances de reporting."
+    },
+    "note": {
+      "title": "Pourquoi nous n'affichons pas de prix fixes",
+      "body": "Chaque entreprise a un volume de documents, un régime fiscal et des exigences de reporting différents. Un prix affiché sur le site serait soit trop élevé pour certains, soit irréaliste pour d'autres. Nous préférons discuter et vous donner un chiffre juste, que nous pouvons tenir.",
+      "cta": "Demander un devis"
+    }
+  },
+  "quote": {
+    "label": "Demander un devis",
+    "title": "Recevez un tarif estimatif en fonction de votre activité",
+    "lead": "Remplissez quelques informations sur votre entreprise et nous vous recontacterons avec une offre personnalisée. Sans engagement.",
+    "perk1": "Réponse rapide",
+    "perk2": "Offre adaptée à votre volume réel",
+    "perk3": "Vos données restent confidentielles",
+    "fields": {
+      "name": "Nom et prénom",
+      "namePlaceholder": "Ex : Jean Dupont",
+      "companyName": "Entreprise",
+      "companyPlaceholder": "Nom de l'entreprise",
+      "email": "E-mail",
+      "emailPlaceholder": "nom@exemple.fr",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+40 7xx xxx xxx",
+      "docs": "Documents / mois (env.)",
+      "employees": "Nombre d'employés",
+      "vat": "Assujetti à la TVA ?",
+      "details": "Détails supplémentaires (facultatif)",
+      "detailsPlaceholder": "Secteur d'activité, besoins spécifiques..."
+    },
+    "docsOptions": {
+      "under20": "Moins de 20",
+      "to50": "20 – 50",
+      "to100": "50 – 100",
+      "to200": "100 – 200",
+      "over200": "Plus de 200"
+    },
+    "employeeOptions": {
+      "none": "0 (aucun employé)",
+      "to3": "1 – 3",
+      "to10": "4 – 10",
+      "to25": "11 – 25",
+      "over25": "Plus de 25"
+    },
+    "vatOptions": {
+      "yes": "Oui",
+      "no": "Non",
+      "unsure": "Je ne sais pas"
+    },
+    "submit": "Envoyer la demande de devis",
+    "sending": "Envoi en cours...",
+    "consent": "En soumettant ce formulaire, vous acceptez le traitement de vos données conformément à la",
+    "consentLink": "Politique de confidentialité",
+    "successTitle": "Demande envoyée",
+    "successBody": "Merci ! Nous vous recontacterons aux coordonnées fournies.",
+    "errorTitle": "L'envoi a échoué",
+    "errorBody": "Veuillez réessayer ou nous écrire directement par e-mail."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Parlons-en",
+    "intro": "Écrivez-nous ou appelez-nous — nous répondons à vos questions sur la comptabilité, la fiscalité et le reporting. Vous parlez directement avec",
+    "introStrong": "de vraies personnes de notre équipe, pas des robots ni de l'IA",
+    "phoneLabel": "Téléphone",
+    "phoneLandline": "fixe",
+    "emailLabel": "E-mail",
+    "addressLabel": "Retrouvez-nous ici",
+    "addressNote": "lieu de travail",
+    "registeredLabel": "Siège social (adresse légale)",
+    "hoursLabel": "Horaires",
+    "hoursDays": "Lundi – Vendredi",
+    "hoursTodo": "[À COMPLÉTER : horaires de travail, ex. 09h00 – 17h00]",
+    "mapTitle": "Plan d'accès",
+    "formTitle": "Envoyez-nous un message",
+    "fields": {
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone (facultatif)",
+      "message": "Message",
+      "messagePlaceholder": "Comment pouvons-nous vous aider ?"
+    },
+    "submit": "Envoyer le message",
+    "successTitle": "Message envoyé",
+    "successBody": "Merci pour votre message ! Nous vous répondrons dans les meilleurs délais."
+  },
+  "footer": {
+    "description": "Services complets de comptabilité et de reporting financier pour entreprises et particuliers.",
+    "navTitle": "Navigation",
+    "legalTitle": "Mentions légales",
+    "regCom": "N° Reg. Com.",
+    "taxId": "CUI",
+    "vatPayer": "assujetti à la TVA",
+    "ceccar": "Membre CECCAR — autorisation n°",
+    "registeredOffice": "Siège social",
+    "workplace": "Lieu de travail",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "terms": "Conditions générales",
+    "anpcSal": "ANPC – SAL",
+    "anpcSol": "ANPC – SOL (ODR)",
+    "rights": "Tous droits réservés.",
+    "legalNote": "Site vitrine · données légales conformes au Reg. Com."
+  },
+  "legal": {
+    "privacyTitle": "Politique de confidentialité",
+    "cookiesTitle": "Politique de cookies",
+    "termsTitle": "Conditions générales",
+    "todo": "[À COMPLÉTER : texte intégral de cette politique]",
+    "backHome": "Retour à la page d'accueil"
+  }
+}

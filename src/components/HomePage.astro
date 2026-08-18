@@ -1,0 +1,58 @@
+---
+import About from './About.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Pricing from './Pricing.astro';
+import QuoteForm from './QuoteForm.astro';
+import Services from './Services.astro';
+import type { Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+
+<Header locale={locale} path="/" />
+<main id="main">
+  <Hero locale={locale} />
+  <Services locale={locale} />
+  <About locale={locale} />
+  <Pricing locale={locale} />
+  <div class="container"><QuoteForm locale={locale} /></div>
+  <Contact locale={locale} />
+</main>
+<Footer locale={locale} />
+
+<script>
+  // Trimitere asincronă cu fallback: fără JS, formularul face POST normal.
+  document.querySelectorAll<HTMLFormElement>('[data-form]').forEach((form) => {
+    const kind = form.action.includes('/quote') ? 'quote' : 'contact';
+    const success = document.getElementById(`${kind}-success`);
+    const error = document.getElementById(`${kind}-error`);
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]');
+    const originalLabel = submit?.textContent ?? '';
+
+    form.addEventListener('submit', async (event) => {
+      if (!form.reportValidity()) return;
+      event.preventDefault();
+
+      if (submit) { submit.disabled = true; submit.textContent = '…'; }
+      if (error) error.hidden = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        if (!response.ok) throw new Error(String(response.status));
+        form.hidden = true;
+        if (success) success.hidden = false;
+      } catch {
+        if (error) error.hidden = false;
+        if (submit) { submit.disabled = false; submit.textContent = originalLabel; }
+      }
+    });
+  });
+</script>

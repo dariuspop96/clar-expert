@@ -1,0 +1,70 @@
+---
+import Icon from './ui/Icon.astro';
+import { locales, localeNames, localizePath, useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props {
+  locale: Locale;
+  /** Calea fără prefix, pentru a rămâne pe aceeași pagină la comutare */
+  path: string;
+  size?: 'sm' | 'lg';
+}
+
+const { locale, path, size = 'sm' } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<div class:list={['langs', `langs--${size}`]}>
+  <Icon name="globe" size={size === 'lg' ? 18 : 17} stroke={1.6} class="langs__globe" />
+  <ul class="langs__list" aria-label={t('nav.language')}>
+    {
+      locales.map((code) => (
+        <li>
+          <a
+            href={localizePath(path, code)}
+            class:list={['langs__item', code === locale && 'is-active']}
+            hreflang={code}
+            title={localeNames[code]}
+            aria-current={code === locale ? 'true' : undefined}
+          >
+            {code.toUpperCase()}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .langs { display: flex; align-items: center; gap: 8px; }
+  .langs__globe { color: var(--c-faint); }
+
+  .langs__list {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .langs__item {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 6px;
+    color: var(--c-faint);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .langs__item:hover { color: var(--c-brand-dark); }
+  .langs__item.is-active {
+    background: var(--c-brand);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .langs--lg { gap: 10px; }
+  .langs--lg .langs__list { gap: 6px; }
+  .langs--lg .langs__item { padding: 8px 12px; font-size: 14px; min-height: 44px; }
+</style>

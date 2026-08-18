@@ -1,0 +1,68 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit';
+  variant?: 'primary' | 'outline' | 'full';
+  size?: 'md' | 'lg';
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'lg',
+  class: className,
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+const classes = ['btn', `btn--${variant}`, `btn--${size}`, className].filter(Boolean).join(' ');
+---
+
+<Tag class={classes} href={href} type={href ? undefined : type} {...rest}>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid transparent;
+    border-radius: var(--r-md);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .btn--md { padding: 10px 20px; font-size: 14px; border-radius: var(--r-sm); }
+  .btn--lg { padding: 15px 30px; font-size: 15.5px; min-height: 44px; }
+
+  .btn--primary {
+    background: var(--c-brand);
+    color: #fff;
+    box-shadow: var(--shadow-btn);
+  }
+  .btn--primary:hover { background: var(--c-brand-dark); color: #fff; }
+
+  .btn--outline {
+    background: transparent;
+    border-color: var(--c-border-strong);
+    color: var(--c-heading);
+    box-shadow: none;
+  }
+  .btn--outline:hover { border-color: var(--c-brand); color: var(--c-brand-dark); }
+
+  .btn--full {
+    background: var(--c-brand);
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+  }
+  .btn--full:hover { background: var(--c-brand-dark); }
+
+  .btn:focus-visible { outline: 2px solid var(--c-brand-dark); outline-offset: 3px; }
+</style>

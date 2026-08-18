@@ -1,0 +1,11 @@
+---
+import LegalPage from '~/components/LegalPage.astro';
+import Base from '~/layouts/Base.astro';
+import { useTranslations } from '~/i18n/utils';
+
+const t = useTranslations('ro');
+---
+
+<Base locale="ro" path="/cookies" title={`${t('legal.cookiesTitle')} | CLAR EXPERT`}>
+  <LegalPage locale="ro" path="/cookies" titleKey="cookiesTitle" />
+</Base>

@@ -1,0 +1,151 @@
+---
+import { company } from '~/data/company';
+import { localizePath, useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const home = localizePath('/', locale);
+
+const navLinks = [
+  { href: `${home}#servicii`, label: t('nav.services') },
+  { href: `${home}#despre`, label: t('nav.about') },
+  { href: `${home}#tarife`, label: t('nav.pricing') },
+  { href: `${home}#oferta`, label: t('nav.cta') },
+  { href: `${home}#contact`, label: t('nav.contact') },
+];
+
+const legalLinks = [
+  { href: localizePath('/privacy', locale), label: t('footer.privacy'), external: false },
+  { href: localizePath('/cookies', locale), label: t('footer.cookies'), external: false },
+  { href: localizePath('/terms', locale), label: t('footer.terms'), external: false },
+  { href: 'https://anpc.ro/ce-este-sal/', label: t('footer.anpcSal'), external: true },
+  { href: 'https://ec.europa.eu/consumers/odr', label: t('footer.anpcSol'), external: true },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="/logo-light.svg" alt={company.brandName} width="150" height="46" />
+        <p class="footer__desc">{t('footer.description')}</p>
+        <address class="footer__legal">
+          {company.legalName}<br />
+          {t('footer.regCom')}: {company.regCom}<br />
+          {t('footer.taxId')}: {company.vatId}{company.vatPayer && ` (${t('footer.vatPayer')})`}<br />
+          {t('footer.ceccar')} {company.ceccar}<br />
+          {t('footer.registeredOffice')}: {company.registeredOffice.street}, {company.registeredOffice.district}, {company.registeredOffice.locality}<br />
+          {t('footer.workplace')}: {company.office.street}, {company.office.district}, {company.office.locality}
+        </address>
+      </div>
+
+      <nav class="footer__col" aria-label={t('footer.navTitle')}>
+        <h2 class="footer__title">{t('footer.navTitle')}</h2>
+        <ul class="footer__list">
+          {navLinks.map((link) => <li><a class="footer__link" href={link.href}>{link.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label={t('footer.legalTitle')}>
+        <h2 class="footer__title">{t('footer.legalTitle')}</h2>
+        <ul class="footer__list">
+          {
+            legalLinks.map((link) => (
+              <li>
+                <a
+                  class="footer__link"
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© {year} {company.legalName}. {t('footer.rights')}</span>
+      <span>{t('footer.legalNote')}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--c-ink-deep);
+    color: var(--c-on-ink-muted);
+    padding-block: 56px 28px;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer__logo { height: 40px; width: auto; }
+
+  .footer__desc {
+    max-width: 340px;
+    margin: 16px 0 0;
+    font-size: 14px;
+    color: var(--c-on-ink-faint);
+  }
+
+  .footer__legal {
+    margin-top: 18px;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 1.85;
+    color: var(--c-on-ink-faint);
+  }
+
+  .footer__title {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #EFF4F8;
+  }
+
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer__link { font-size: 14px; color: var(--c-on-ink-muted); }
+  .footer__link:hover { color: #fff; }
+
+  .footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    font-size: 12.5px;
+    color: #78838C;
+  }
+
+  @media (max-width: 960px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

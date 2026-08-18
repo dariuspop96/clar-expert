@@ -1,0 +1,97 @@
+---
+import Icon, { type IconName } from './Icon.astro';
+
+interface Props {
+  icon?: IconName;
+  title?: string;
+  /** Card pe fundal antracit (folosit pentru „Echipa") */
+  dark?: boolean;
+  /** Etichetă în colț, pe același rând cu iconița */
+  badge?: string;
+  size?: 'md' | 'lg';
+  class?: string;
+}
+
+const { icon, title, dark = false, badge, size = 'md', class: className } = Astro.props;
+const classes = ['card', dark && 'card--dark', `card--${size}`, className].filter(Boolean).join(' ');
+---
+
+<article class={classes}>
+  {
+    (icon || badge) && (
+      <div class="card__head">
+        {icon && (
+          <span class="card__icon">
+            <Icon name={icon} size={size === 'lg' ? 26 : 24} />
+          </span>
+        )}
+        {badge && <span class="card__badge">{badge}</span>}
+      </div>
+    )
+  }
+  {title && <h3 class="card__title">{title}</h3>}
+  <div class="card__body"><slot /></div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 24px;
+  }
+  .card--lg { border-radius: var(--r-xl); padding: 30px; }
+
+  .card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .card__icon {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--c-surface-icon);
+    color: var(--c-brand-dark);
+  }
+  .card--md .card__icon { width: 44px; height: 44px; border-radius: 11px; }
+
+  .card__badge {
+    padding: 5px 10px;
+    border-radius: var(--r-pill);
+    background: var(--c-brand);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.25;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .card__title { margin-top: 20px; font-size: var(--fs-h3); }
+  .card--md .card__title { margin-top: 14px; font-size: 17px; }
+
+  .card__body {
+    margin-top: 10px;
+    font-size: var(--fs-card);
+    color: var(--c-muted);
+  }
+  .card--md .card__body { font-size: 13.5px; }
+
+  .card--dark {
+    background: var(--c-ink);
+    border-color: var(--c-ink);
+  }
+  .card--dark .card__icon { background: rgb(37 162 212 / 0.18); color: var(--c-brand-light); }
+  .card--dark .card__title { color: var(--c-on-ink); }
+  .card--dark .card__body { color: var(--c-on-ink-muted); }
+</style>

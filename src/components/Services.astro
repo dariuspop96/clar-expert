@@ -1,0 +1,66 @@
+---
+import Card from './ui/Card.astro';
+import SectionHeader from './ui/SectionHeader.astro';
+import { type IconName } from './ui/Icon.astro';
+import { useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const services: { key: string; icon: IconName; featured?: boolean }[] = [
+  { key: 'accounting', icon: 'document' },
+  { key: 'payroll', icon: 'people' },
+  { key: 'tax', icon: 'declaration' },
+  { key: 'reporting', icon: 'chart-bars', featured: true },
+  { key: 'consulting', icon: 'advisory' },
+  { key: 'incorporation', icon: 'plus-circle' },
+  { key: 'officeHosting', icon: 'home' },
+  { key: 'onrc', icon: 'folder' },
+];
+---
+
+<section class="services" id="servicii">
+  <div class="container">
+    <SectionHeader
+      label={t('services.label')}
+      title={t('services.title')}
+      intro={t('services.intro')}
+      max="640px"
+    />
+
+    <div class="services__grid">
+      {
+        services.map(({ key, icon, featured }) => (
+          <Card
+            icon={icon}
+            size="lg"
+            title={t(`services.${key}.title`)}
+            badge={featured ? t('services.featuredBadge') : undefined}
+          >
+            {t(`services.${key}.desc`)}
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services { padding-block: var(--space-section) 40px; }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 44px;
+  }
+
+  @media (max-width: 1080px) {
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .services__grid { grid-template-columns: 1fr; }
+  }
+</style>

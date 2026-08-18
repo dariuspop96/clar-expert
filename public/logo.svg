@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 92" width="300" height="92" role="img" aria-label="CLAR EXPERT — accounting &amp; reporting">
+  <g font-family="Jost, 'Century Gothic', system-ui, sans-serif" font-weight="400">
+    <text x="0" y="46" font-size="42" letter-spacing="2.4" fill="#58595B">CLAR</text>
+    <text x="108" y="46" font-size="42" letter-spacing="2.4" fill="#25A2D4">EXPERT</text>
+    <polygon points="272,28 288,28 280,10" fill="#25A2D4"></polygon>
+    <text x="1" y="72" font-size="11.5" letter-spacing="6.2" fill="#8A94A0">ACCOUNTING &amp; REPORTING</text>
+  </g>
+</svg>

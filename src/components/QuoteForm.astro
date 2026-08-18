@@ -1,0 +1,213 @@
+---
+import Button from './ui/Button.astro';
+import FormField from './ui/FormField.astro';
+import FormStatus from './ui/FormStatus.astro';
+import Icon from './ui/Icon.astro';
+import { getDictionary, localizePath, useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const dict = getDictionary(locale);
+
+const perks = ['perk1', 'perk2', 'perk3'] as const;
+const docsOptions = Object.values(dict.quote.docsOptions);
+const employeeOptions = Object.values(dict.quote.employeeOptions);
+const vatOptions = Object.values(dict.quote.vatOptions);
+---
+
+<div class="quote" id="oferta">
+  <div class="quote__aside">
+    <span class="quote__label">{t('quote.label')}</span>
+    <h3 class="quote__title">{t('quote.title')}</h3>
+    <p class="quote__lead">{t('quote.lead')}</p>
+    <ul class="quote__perks">
+      {
+        perks.map((perk) => (
+          <li class="quote__perk">
+            <Icon name="check" size={17} stroke={2} class="quote__check" />
+            {t(`quote.${perk}`)}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="quote__main">
+    <form class="form" data-form action="/api/quote" method="POST" novalidate>
+      <input type="hidden" name="locale" value={locale} />
+      {/* Honeypot: câmp invizibil pentru boți */}
+      <div class="hp" aria-hidden="true">
+        <label for="quote-website">Website</label>
+        <input id="quote-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="form__row">
+        <FormField label={t('quote.fields.name')} name="name" required placeholder={t('quote.fields.namePlaceholder')} />
+        <FormField label={t('quote.fields.companyName')} name="companyName" placeholder={t('quote.fields.companyPlaceholder')} />
+      </div>
+
+      <div class="form__row">
+        <FormField label={t('quote.fields.email')} name="email" type="email" required placeholder={t('quote.fields.emailPlaceholder')} />
+        <FormField label={t('quote.fields.phone')} name="phone" type="tel" placeholder={t('quote.fields.phonePlaceholder')} />
+      </div>
+
+      <div class="form__row">
+        <FormField label={t('quote.fields.docs')} name="docs" type="select" options={docsOptions} />
+        <FormField label={t('quote.fields.employees')} name="employees" type="select" options={employeeOptions} />
+      </div>
+
+      <fieldset class="radios">
+        <legend class="radios__legend">{t('quote.fields.vat')}</legend>
+        <div class="radios__row">
+          {
+            vatOptions.map((option, index) => (
+              <label class="radio">
+                <input type="radio" name="vat" value={option} checked={index === 0} />
+                {option}
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <FormField label={t('quote.fields.details')} name="details" type="textarea" rows={2} placeholder={t('quote.fields.detailsPlaceholder')} />
+
+      <Button type="submit" variant="full" data-submit>{t('quote.submit')}</Button>
+
+      <p class="form__consent">
+        {t('quote.consent')}{' '}
+        <a href={localizePath('/privacy', locale)}>{t('quote.consentLink')}</a>.
+      </p>
+    </form>
+
+    <FormStatus id="quote-success" variant="success" title={t('quote.successTitle')} body={t('quote.successBody')} />
+    <FormStatus id="quote-error" variant="error" title={t('quote.errorTitle')} body={t('quote.errorBody')} />
+  </div>
+</div>
+
+<style>
+  .quote {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    overflow: hidden;
+    margin-top: 56px;
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-2xl);
+    background: var(--c-surface);
+    scroll-margin-top: 90px;
+  }
+
+  .quote__aside {
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    background: var(--c-ink);
+  }
+  .quote__aside::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -40px;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(37 162 212 / 0.4), transparent 70%);
+  }
+
+  .quote__label {
+    position: relative;
+    font-size: var(--fs-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-brand-light);
+  }
+
+  .quote__title {
+    position: relative;
+    margin-top: 14px;
+    font-size: 28px;
+    color: var(--c-on-ink);
+  }
+
+  .quote__lead {
+    position: relative;
+    margin: 16px 0 0;
+    font-size: var(--fs-card);
+    color: var(--c-on-ink-muted);
+  }
+
+  .quote__perks {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .quote__perk {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #DCE3E9;
+  }
+  .quote__check { flex: none; color: var(--c-brand-light); }
+
+  .quote__main { padding: 40px; }
+
+  .form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form__consent {
+    margin: 0;
+    font-size: 11.5px;
+    color: var(--c-faint);
+  }
+
+  .radios { margin: 0; padding: 0; border: 0; }
+  .radios__legend {
+    padding: 0;
+    margin-bottom: 9px;
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: #4B535A;
+  }
+  .radios__row { display: flex; gap: 10px; }
+
+  .radio {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 14px;
+    border: 1px solid var(--c-border-strong);
+    border-radius: var(--r-md);
+    background: var(--c-surface-field);
+    font-size: 14px;
+    color: #33393F;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .radio input { accent-color: var(--c-brand); }
+  .radio:has(input:checked) { border-color: var(--c-brand); }
+
+  .hp { position: absolute; left: -9999px; }
+
+  @media (max-width: 960px) {
+    .quote { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .quote__aside, .quote__main { padding: 24px; }
+    .form__row, .radios__row { grid-template-columns: 1fr; flex-direction: column; }
+  }
+</style>

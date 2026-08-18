@@ -1,0 +1,68 @@
+:root {
+  /* Brand */
+  --c-brand: #25A2D4;
+  --c-brand-dark: #1B87B4;
+  --c-brand-light: #5CC0EC;
+
+  /* Neutre */
+  --c-ink: #232A31;         /* fundal casete închise */
+  --c-ink-deep: #20262C;    /* footer */
+  --c-heading: #2A3037;
+  --c-body: #586067;
+  --c-muted: #6B747B;
+  --c-faint: #8A94A0;
+
+  /* Suprafețe */
+  --c-surface: #FFFFFF;
+  --c-surface-alt: #EEF6FB;   /* secțiuni alternate */
+  --c-surface-icon: #EAF5FB;  /* pătratul din spatele iconițelor */
+  --c-surface-field: #FAFCFD;
+  --c-border: #E4EBEF;
+  --c-border-strong: #CFDAE1;
+  --c-border-header: #E7EDF1;
+
+  /* Pe fundal închis */
+  --c-on-ink: #F1F7FB;
+  --c-on-ink-muted: #AEB9C2;
+  --c-on-ink-faint: #8A96A0;
+
+  /* Tipografie */
+  --font-display: 'Jost', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+
+  --fs-h1: 52px;
+  --fs-h2: 38px;
+  --fs-h3: 20px;
+  --fs-lead: 18px;
+  --fs-body: 16.5px;
+  --fs-card: 14.5px;
+  --fs-small: 13px;
+  --fs-label: 12.5px;
+
+  /* Spațiere */
+  --space-section: 90px;
+  --space-gap: 22px;
+  --content-max: 1180px;
+  --content-pad: 24px;
+
+  /* Formă */
+  --r-sm: 7px;
+  --r-md: 9px;
+  --r-lg: 14px;
+  --r-xl: 16px;
+  --r-2xl: 20px;
+  --r-pill: 999px;
+
+  --shadow-card: 0 26px 50px -26px rgba(35, 42, 49, 0.55);
+  --shadow-btn: 0 10px 24px -12px rgba(37, 162, 212, 0.9);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --fs-h1: 32px;
+    --fs-h2: 30px;
+    --fs-h3: 19px;
+    --fs-lead: 16px;
+    --space-section: 64px;
+  }
+}

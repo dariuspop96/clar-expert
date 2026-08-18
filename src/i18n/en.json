@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "title": "Accounting & Financial Reporting Bucharest | CLAR EXPERT",
+    "description": "Full-service accounting, payroll, tax filings and financial reporting for companies and individuals. CECCAR member.",
+    "ogAlt": "CLAR EXPERT — accounting & reporting"
+  },
+  "nav": {
+    "services": "Services",
+    "about": "About us",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "cta": "Get a quote",
+    "menu": "Menu",
+    "language": "Language",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "label": "Accounting expertise & reporting",
+    "title": "Complete accounting and financial reporting for companies and individuals",
+    "lead": "We keep your books up to date, handle the relationship with the Romanian tax authority (ANAF) and deliver clear financial reports — from balance sheets to management reporting and group consolidation. You focus on your business, we take care of the numbers.",
+    "ctaPrimary": "Get a quote",
+    "ctaSecondary": "See our services",
+    "trust": {
+      "ceccar": {
+        "title": "CECCAR Member",
+        "desc": "Licence no. 11817"
+      },
+      "reports": {
+        "title": "Clear reports",
+        "desc": "Easy-to-understand monthly reports"
+      },
+      "response": {
+        "title": "Prompt response",
+        "desc": "A dedicated contact for your company"
+      },
+      "group": {
+        "title": "Group experience",
+        "desc": "Reporting to parent companies too"
+      }
+    },
+    "card": {
+      "title": "What you get every month",
+      "item1": "Up-to-date bookkeeping",
+      "item2": "Tax filings submitted on time",
+      "item3": "Clear monthly financial report",
+      "item4": "Support from real people, no AI"
+    }
+  },
+  "services": {
+    "label": "Services",
+    "title": "Everything accounting, all in one place",
+    "intro": "Full-service accounting and reporting for micro-enterprises, limited companies and group subsidiaries.",
+    "featuredBadge": "Our speciality",
+    "accounting": {
+      "title": "Financial and management accounting",
+      "desc": "Complete bookkeeping, document recording, mandatory ledgers and your company's financial position, month by month."
+    },
+    "payroll": {
+      "title": "Payroll and HR administration",
+      "desc": "Salary calculations, pay slips, employment contracts and addenda, REGES submissions and the D112 declaration."
+    },
+    "tax": {
+      "title": "Tax filings and ANAF liaison",
+      "desc": "Preparation and submission of tax returns (VAT, income tax, D112, D394, etc.) and representation before the tax authority."
+    },
+    "reporting": {
+      "title": "Financial reporting",
+      "desc": "Balance sheets and financial statements, management reporting and periodic group / parent-company reports in the required formats."
+    },
+    "consulting": {
+      "title": "Tax consulting",
+      "desc": "Legal tax optimisation, legislative-change impact analysis and support for decisions with financial implications."
+    },
+    "incorporation": {
+      "title": "Company incorporation",
+      "desc": "Setting up an SRL, SRL-D or PFA: name reservation, drafting the articles, filing the dossier and start-up consulting."
+    },
+    "officeHosting": {
+      "title": "Registered-office hosting",
+      "desc": "A registered-office hosting agreement for your company, with the documents required by ONRC and ANAF correspondence handling."
+    },
+    "onrc": {
+      "title": "Trade-register procedures",
+      "desc": "Changes at the Trade Register: business activity, registered office, shareholders, directors, share capital, amendments, suspension or deregistration."
+    }
+  },
+  "about": {
+    "label": "About us",
+    "title": "Accurate numbers, better decisions",
+    "body": "CLAR EXPERT — CL Accounting Reporting SRL — provides accounting and financial reporting services for entrepreneurs and companies in Romania. We focus on accuracy, meeting deadlines and delivering reports you actually understand — not just compliance.",
+    "chipCeccar": "CECCAR Member — no. 11817",
+    "chipLocation": "Based in Bucharest, Sector 1",
+    "chipFounded": "Licensed since 2020",
+    "mission": {
+      "title": "Mission",
+      "desc": "To simplify the financial side of your business and give you real visibility over your numbers."
+    },
+    "values": {
+      "title": "Values",
+      "desc": "Integrity, confidentiality and transparency in everything we report and recommend."
+    },
+    "method": {
+      "title": "How we work",
+      "desc": "Documents collected digitally, up-to-date records and a clear monthly report, with a single dedicated contact."
+    },
+    "team": {
+      "title": "Team",
+      "desc": "[TO BE COMPLETED: team presentation — name, role and experience, if you want it on the site]"
+    }
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "How we set the fee for your company",
+    "intro": "We don't work with fixed packages. We talk to you, understand your company's needs and, based on those, prepare a custom quote — fair for the actual volume and complexity of your business.",
+    "badge": "Custom quote, no hidden costs",
+    "step1": {
+      "title": "Initial conversation",
+      "desc": "Tell us what your company does, how you work today and what's not working. No long forms — a straightforward conversation."
+    },
+    "step2": {
+      "title": "Needs analysis",
+      "desc": "We look at your document volume, number of employees, VAT status and any group-reporting requirements."
+    },
+    "step3": {
+      "title": "Custom quote",
+      "desc": "You receive a written offer with the services included and the monthly fee, calculated on your company's actual situation."
+    },
+    "step4": {
+      "title": "We start working together",
+      "desc": "We sign the contract, take over the bookkeeping and agree on the document flow and reporting deadlines."
+    },
+    "note": {
+      "title": "Why we don't show fixed prices",
+      "body": "Every company has a different document volume, tax regime and reporting requirements. A price displayed on the site would be either too high for some or unrealistic for others. We prefer to talk and give you an accurate figure we can stand behind.",
+      "cta": "Request a quote"
+    }
+  },
+  "quote": {
+    "label": "Get a quote",
+    "title": "Receive an estimated fee based on your business",
+    "lead": "Fill in a few details about your company and we'll get back to you with a personalised offer. No obligations.",
+    "perk1": "Quick response",
+    "perk2": "Quote tailored to your actual volume",
+    "perk3": "Your data stays confidential",
+    "fields": {
+      "name": "Full name",
+      "namePlaceholder": "E.g. John Smith",
+      "companyName": "Company",
+      "companyPlaceholder": "Company name",
+      "email": "E-mail",
+      "emailPlaceholder": "name@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+40 7xx xxx xxx",
+      "docs": "Documents / month (approx.)",
+      "employees": "Number of employees",
+      "vat": "VAT registered?",
+      "details": "Additional details (optional)",
+      "detailsPlaceholder": "Industry, specific needs..."
+    },
+    "docsOptions": {
+      "under20": "Under 20",
+      "to50": "20 – 50",
+      "to100": "50 – 100",
+      "to200": "100 – 200",
+      "over200": "Over 200"
+    },
+    "employeeOptions": {
+      "none": "0 (no employees)",
+      "to3": "1 – 3",
+      "to10": "4 – 10",
+      "to25": "11 – 25",
+      "over25": "Over 25"
+    },
+    "vatOptions": {
+      "yes": "Yes",
+      "no": "No",
+      "unsure": "Not sure"
+    },
+    "submit": "Submit quote request",
+    "sending": "Sending...",
+    "consent": "By submitting you agree to the processing of your data according to the",
+    "consentLink": "Privacy Policy",
+    "successTitle": "Request sent",
+    "successBody": "Thank you! We'll get back to you at the contact details provided.",
+    "errorTitle": "Submission failed",
+    "errorBody": "Please try again or e-mail us directly."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk",
+    "intro": "Write to us or give us a call — we answer your questions about accounting, tax and reporting. You speak directly with",
+    "introStrong": "real people from our team, not bots or AI",
+    "phoneLabel": "Phone",
+    "phoneLandline": "landline",
+    "emailLabel": "E-mail",
+    "addressLabel": "Find us here",
+    "addressNote": "workplace",
+    "registeredLabel": "Registered office (legal address)",
+    "hoursLabel": "Office hours",
+    "hoursDays": "Monday – Friday",
+    "hoursTodo": "[TO BE COMPLETED: office hours, e.g. 09:00 – 17:00]",
+    "mapTitle": "Office map",
+    "formTitle": "Send us a message",
+    "fields": {
+      "name": "Name",
+      "email": "E-mail",
+      "phone": "Phone (optional)",
+      "message": "Message",
+      "messagePlaceholder": "How can we help?"
+    },
+    "submit": "Send message",
+    "successTitle": "Message sent",
+    "successBody": "Thank you for your message! We'll reply as soon as possible."
+  },
+  "footer": {
+    "description": "Full-service accounting and financial reporting for companies and individuals.",
+    "navTitle": "Navigation",
+    "legalTitle": "Legal",
+    "regCom": "Trade Reg. No.",
+    "taxId": "Tax ID",
+    "vatPayer": "VAT registered",
+    "ceccar": "CECCAR Member — licence no.",
+    "registeredOffice": "Registered office",
+    "workplace": "Workplace",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "terms": "Terms & Conditions",
+    "anpcSal": "ANPC – SAL",
+    "anpcSol": "ANPC – SOL (ODR)",
+    "rights": "All rights reserved.",
+    "legalNote": "Presentation website · legal data per Trade Register."
+  },
+  "legal": {
+    "privacyTitle": "Privacy Policy",
+    "cookiesTitle": "Cookie Policy",
+    "termsTitle": "Terms & Conditions",
+    "todo": "[TO BE COMPLETED: full text of this policy]",
+    "backHome": "Back to homepage"
+  }
+}

@@ -1,0 +1,11 @@
+---
+import LegalPage from '~/components/LegalPage.astro';
+import Base from '~/layouts/Base.astro';
+import { useTranslations } from '~/i18n/utils';
+
+const t = useTranslations('fr');
+---
+
+<Base locale="fr" path="/privacy" title={`${t('legal.privacyTitle')} | CLAR EXPERT`}>
+  <LegalPage locale="fr" path="/privacy" titleKey="privacyTitle" />
+</Base>

@@ -1,0 +1,238 @@
+---
+import Button from './ui/Button.astro';
+import FormField from './ui/FormField.astro';
+import FormStatus from './ui/FormStatus.astro';
+import Icon from './ui/Icon.astro';
+import SectionHeader from './ui/SectionHeader.astro';
+import { company } from '~/data/company';
+import { localizePath, useTranslations, type Locale } from '~/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(company.office.mapsQuery)}&output=embed`;
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <SectionHeader label={t('contact.label')} title={t('contact.title')} max="600px">
+      <p class="section-intro">
+        {t('contact.intro')} <strong>{t('contact.introStrong')}</strong>.
+      </p>
+    </SectionHeader>
+
+    <div class="contact__grid">
+      <ul class="info">
+        <li class="info__card">
+          <span class="info__icon"><Icon name="phone" size={21} stroke={1.6} /></span>
+          <div>
+            <span class="info__label">{t('contact.phoneLabel')}</span>
+            {
+              company.phones.map((phone) => (
+                <a class:list={['info__value', phone.type === 'landline' && 'info__value--minor']} href={`tel:${phone.tel}`}>
+                  {phone.display}
+                  {phone.type === 'landline' && ` (${t('contact.phoneLandline')})`}
+                </a>
+              ))
+            }
+          </div>
+        </li>
+
+        <li class="info__card">
+          <span class="info__icon"><Icon name="mail" size={21} stroke={1.6} /></span>
+          <div>
+            <span class="info__label">{t('contact.emailLabel')}</span>
+            <a class="info__value" href={`mailto:${company.email}`}>{company.email}</a>
+          </div>
+        </li>
+
+        <li class="info__card">
+          <span class="info__icon"><Icon name="pin" size={21} stroke={1.6} /></span>
+          <div>
+            <span class="info__label info__label--accent">{t('contact.addressLabel')}</span>
+            <strong class="info__address">{company.office.street}</strong>
+            <span class="info__muted">
+              {company.office.district}, {company.office.locality} — {t('contact.addressNote')}
+            </span>
+            <div class="info__legal">
+              <span class="info__label">{t('contact.registeredLabel')}</span>
+              <span class="info__muted">
+                {company.registeredOffice.street}, {company.registeredOffice.district}, {company.registeredOffice.locality}
+              </span>
+            </div>
+          </div>
+        </li>
+
+        <li class="info__card">
+          <span class="info__icon"><Icon name="clock" size={21} stroke={1.6} /></span>
+          <div>
+            <span class="info__label">{t('contact.hoursLabel')}</span>
+            <strong class="info__address">{t('contact.hoursDays')}</strong>
+            <span class="info__muted">{company.openingHours ?? t('contact.hoursTodo')}</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="contact__right">
+        <div class="panel-card">
+          <form class="form" data-form action="/api/contact" method="POST" novalidate>
+            <input type="hidden" name="locale" value={locale} />
+            <div class="hp" aria-hidden="true">
+              <label for="contact-website">Website</label>
+              <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <h3 class="form__title">{t('contact.formTitle')}</h3>
+
+            <div class="form__row">
+              <FormField label={t('contact.fields.name')} name="name" required />
+              <FormField label={t('contact.fields.email')} name="email" type="email" required />
+            </div>
+
+            <FormField label={t('contact.fields.phone')} name="phone" type="tel" />
+            <FormField
+              label={t('contact.fields.message')}
+              name="message"
+              type="textarea"
+              rows={4}
+              required
+              placeholder={t('contact.fields.messagePlaceholder')}
+            />
+
+            <Button type="submit" variant="full" data-submit>{t('contact.submit')}</Button>
+
+            <p class="form__consent">
+              {t('quote.consent')}{' '}
+              <a href={localizePath('/privacy', locale)}>{t('quote.consentLink')}</a>.
+            </p>
+          </form>
+
+          <FormStatus id="contact-success" variant="success" title={t('contact.successTitle')} body={t('contact.successBody')} />
+          <FormStatus id="contact-error" variant="error" title={t('quote.errorTitle')} body={t('quote.errorBody')} />
+        </div>
+
+        <iframe
+          class="map"
+          src={mapSrc}
+          title={t('contact.mapTitle')}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    margin-top: 80px;
+    background: var(--c-surface-alt);
+    padding-block: 84px;
+  }
+
+  .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 36px;
+    align-items: stretch;
+    margin-top: 40px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .info__card {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 22px;
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    background: var(--c-surface);
+  }
+
+  .info__icon {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--c-surface-icon);
+    color: var(--c-brand-dark);
+  }
+
+  .info__label {
+    display: block;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-faint);
+  }
+  .info__label--accent { color: var(--c-brand-dark); font-weight: 600; }
+
+  .info__value {
+    display: block;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--c-heading);
+  }
+  .info__value:hover { color: var(--c-brand-dark); }
+  .info__value--minor { font-size: 14px; font-weight: 400; color: var(--c-muted); }
+
+  .info__address { display: block; font-size: 17px; color: var(--c-heading); }
+  .info__muted { display: block; font-size: 14px; color: var(--c-muted); }
+
+  .info__legal {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #EEF3F6;
+  }
+
+  .contact__right { display: flex; flex-direction: column; gap: 16px; }
+
+  .panel-card {
+    padding: 34px;
+    border: 1px solid var(--c-border);
+    border-radius: 18px;
+    background: var(--c-surface);
+  }
+
+  .form { display: flex; flex-direction: column; gap: 16px; }
+  .form__title { font-size: 21px; }
+
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form__consent { margin: 0; font-size: 11.5px; color: var(--c-faint); }
+
+  .map {
+    width: 100%;
+    min-height: 200px;
+    flex: 1;
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+  }
+
+  .hp { position: absolute; left: -9999px; }
+
+  @media (max-width: 960px) {
+    .contact__grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .panel-card { padding: 24px; }
+    .form__row { grid-template-columns: 1fr; }
+  }
+</style>

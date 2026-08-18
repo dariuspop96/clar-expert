@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  variant?: 'success' | 'error';
+  title: string;
+  body: string;
+  hidden?: boolean;
+  id?: string;
+}
+
+const { variant = 'success', title, body, hidden = true, id } = Astro.props;
+---
+
+<div class:list={['status', `status--${variant}`]} id={id} hidden={hidden} role="status" aria-live="polite">
+  <span class="status__icon">
+    <Icon name={variant === 'success' ? 'check' : 'close'} size={30} stroke={2} />
+  </span>
+  <h3 class="status__title">{title}</h3>
+  <p class="status__body">{body}</p>
+</div>
+
+<style>
+  .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    height: 100%;
+    text-align: center;
+  }
+  .status[hidden] { display: none; }
+
+  .status__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .status--success .status__icon { background: #E3F3EA; color: #3E9C63; }
+  .status--error .status__icon { background: #FBEAE7; color: #B8452B; }
+
+  .status__title { margin-top: 20px; font-size: 24px; }
+  .status__body {
+    margin: 10px 0 0;
+    max-width: 340px;
+    font-size: 15px;
+    color: var(--c-muted);
+  }
+</style>

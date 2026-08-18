@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "title": "Contabilitate și raportare financiară București | CLAR EXPERT",
+    "description": "Servicii complete de contabilitate, salarizare, declarații fiscale și raportare financiară pentru companii și persoane fizice. Membru CECCAR.",
+    "ogAlt": "CLAR EXPERT — accounting & reporting"
+  },
+  "nav": {
+    "services": "Servicii",
+    "about": "Despre noi",
+    "pricing": "Tarife",
+    "contact": "Contact",
+    "cta": "Cere ofertă",
+    "menu": "Meniu",
+    "language": "Limbă",
+    "skipToContent": "Sari la conținut"
+  },
+  "hero": {
+    "label": "Expertiză contabilă & raportare",
+    "title": "Contabilitate și raportare financiară completă pentru companii și persoane fizice",
+    "lead": "Ținem evidența contabilă la zi, gestionăm relația cu ANAF și livrăm raportări financiare clare — de la bilanț la management reporting și raportări către grup. Tu te concentrezi pe afacere, noi pe cifre.",
+    "ctaPrimary": "Cere ofertă",
+    "ctaSecondary": "Vezi serviciile",
+    "trust": {
+      "ceccar": {
+        "title": "Membru CECCAR",
+        "desc": "Autorizație nr. 11817"
+      },
+      "reports": {
+        "title": "Raportări clare",
+        "desc": "Rapoarte lunare ușor de înțeles"
+      },
+      "response": {
+        "title": "Răspuns prompt",
+        "desc": "Un contact dedicat pentru firma ta"
+      },
+      "group": {
+        "title": "Experiență de grup",
+        "desc": "Raportări și către companii-mamă"
+      }
+    },
+    "card": {
+      "title": "Ce primești lună de lună",
+      "item1": "Evidență contabilă ținută la zi",
+      "item2": "Declarații fiscale depuse la termen",
+      "item3": "Raport financiar lunar, clar",
+      "item4": "Contact și suport oferit de oameni reali, fără AI"
+    }
+  },
+  "services": {
+    "label": "Servicii",
+    "title": "Tot ce ține de contabilitate, într-un singur loc",
+    "intro": "Servicii complete de contabilitate și raportare pentru micro-întreprinderi, SRL-uri și companii cu apartenență de grup.",
+    "featuredBadge": "Specializarea noastră",
+    "accounting": {
+      "title": "Contabilitate financiară și de gestiune",
+      "desc": "Ținerea evidenței contabile complete, înregistrarea documentelor, registre obligatorii și situația financiară a firmei, lună de lună."
+    },
+    "payroll": {
+      "title": "Salarizare și administrare de personal",
+      "desc": "Calcul salarii, state de plată, fluturași, contracte și acte adiționale, transmiterea în REGES și declarația 112."
+    },
+    "tax": {
+      "title": "Declarații fiscale și relația cu ANAF",
+      "desc": "Întocmirea și depunerea declarațiilor fiscale (TVA, impozit, D112, D394 etc.) și reprezentarea în relația cu ANAF."
+    },
+    "reporting": {
+      "title": "Raportare financiară",
+      "desc": "Bilanțuri și situații financiare, management reporting și raportări periodice către grup / compania-mamă, în formatele solicitate."
+    },
+    "consulting": {
+      "title": "Consultanță fiscală",
+      "desc": "Optimizare fiscală legală, analiză de impact la modificările legislative și sprijin în deciziile cu impact financiar."
+    },
+    "incorporation": {
+      "title": "Înființări de firme",
+      "desc": "Înființare SRL, SRL-D sau PFA: rezervare denumire, redactarea actelor, depunerea dosarului și consultanță la start."
+    },
+    "officeHosting": {
+      "title": "Găzduire sediu social",
+      "desc": "Contract de găzduire a sediului social pentru firma ta, cu documentele necesare la ONRC și preluarea corespondenței de la ANAF."
+    },
+    "onrc": {
+      "title": "Proceduri ONRC",
+      "desc": "Modificări la Registrul Comerțului: obiect de activitate, sediu, asociați, administratori, capital social, mențiuni, suspendare sau radiere."
+    }
+  },
+  "about": {
+    "label": "Despre noi",
+    "title": "Cifre corecte, decizii mai bune",
+    "body": "CLAR EXPERT — CL Accounting Reporting SRL — oferă servicii de contabilitate și raportare financiară pentru antreprenori și companii din România. Punem accent pe acuratețe, respectarea termenelor și pe rapoarte pe care le înțelegi — nu doar pe conformitate.",
+    "chipCeccar": "Membru CECCAR — nr. 11817",
+    "chipLocation": "Sediu în București, Sector 1",
+    "chipFounded": "Firmă autorizată din 2020",
+    "mission": {
+      "title": "Misiunea",
+      "desc": "Să simplificăm partea financiară a afacerii tale și să-ți oferim vizibilitate reală asupra cifrelor."
+    },
+    "values": {
+      "title": "Valori",
+      "desc": "Corectitudine, confidențialitate și transparență în tot ce raportăm și recomandăm."
+    },
+    "method": {
+      "title": "Mod de lucru",
+      "desc": "Documente preluate digital, evidență la zi și un raport lunar clar, cu un singur contact dedicat."
+    },
+    "team": {
+      "title": "Echipa",
+      "desc": "[DE COMPLETAT: prezentare echipă — nume, rol și experiență, dacă doriți să apară pe site]"
+    }
+  },
+  "pricing": {
+    "label": "Tarife",
+    "title": "Cum stabilim tariful pentru firma ta",
+    "intro": "Nu lucrăm cu pachete standard. Discutăm cu tine, înțelegem ce nevoi are firma și pe baza lor întocmim o cotație personalizată — corectă pentru volumul și complexitatea reală a activității.",
+    "badge": "Cotație personalizată, fără costuri ascunse",
+    "step1": {
+      "title": "Discuție inițială",
+      "desc": "Ne spui ce face firma ta, cum lucrezi acum și ce te încurcă. Fără formulare lungi — o conversație directă."
+    },
+    "step2": {
+      "title": "Analiza nevoilor",
+      "desc": "Ne uităm la volumul de documente, numărul de angajați, regimul de TVA și eventualele raportări către grup."
+    },
+    "step3": {
+      "title": "Cotație personalizată",
+      "desc": "Primești o ofertă scrisă, cu serviciile incluse și tariful lunar, calculat pe situația reală a firmei tale."
+    },
+    "step4": {
+      "title": "Începem colaborarea",
+      "desc": "Semnăm contractul, preluăm evidența și stabilim fluxul de documente și termenele de raportare."
+    },
+    "note": {
+      "title": "De ce nu afișăm prețuri fixe",
+      "body": "Fiecare firmă are un volum de documente, un regim fiscal și cerințe de raportare diferite. Un preț afișat pe site ar fi fie prea mare pentru unii, fie nerealist pentru alții. Preferăm să discutăm și să îți dăm o cifră corectă, pe care o putem susține.",
+      "cta": "Solicită o cotație"
+    }
+  },
+  "quote": {
+    "label": "Cere ofertă",
+    "title": "Primești un tarif estimativ în funcție de activitatea ta",
+    "lead": "Completează câteva detalii despre firmă și îți revenim cu o ofertă personalizată. Fără obligații.",
+    "perk1": "Răspuns în cel mai scurt timp",
+    "perk2": "Ofertă adaptată volumului real",
+    "perk3": "Datele tale rămân confidențiale",
+    "fields": {
+      "name": "Nume și prenume",
+      "namePlaceholder": "Ex: Andrei Popescu",
+      "companyName": "Firma",
+      "companyPlaceholder": "Denumire firmă",
+      "email": "E-mail",
+      "emailPlaceholder": "nume@exemplu.ro",
+      "phone": "Telefon",
+      "phonePlaceholder": "07xx xxx xxx",
+      "docs": "Documente / lună (aprox.)",
+      "employees": "Număr de angajați",
+      "vat": "Plătitor de TVA?",
+      "details": "Detalii suplimentare (opțional)",
+      "detailsPlaceholder": "Domeniu de activitate, nevoi specifice..."
+    },
+    "docsOptions": {
+      "under20": "Sub 20",
+      "to50": "20 – 50",
+      "to100": "50 – 100",
+      "to200": "100 – 200",
+      "over200": "Peste 200"
+    },
+    "employeeOptions": {
+      "none": "0 (fără angajați)",
+      "to3": "1 – 3",
+      "to10": "4 – 10",
+      "to25": "11 – 25",
+      "over25": "Peste 25"
+    },
+    "vatOptions": {
+      "yes": "Da",
+      "no": "Nu",
+      "unsure": "Nu știu"
+    },
+    "submit": "Trimite cererea de ofertă",
+    "sending": "Se trimite...",
+    "consent": "Prin trimitere ești de acord cu prelucrarea datelor conform",
+    "consentLink": "Politicii de confidențialitate",
+    "successTitle": "Cererea a fost trimisă",
+    "successBody": "Mulțumim! Revenim cu oferta la datele de contact furnizate.",
+    "errorTitle": "Trimiterea a eșuat",
+    "errorBody": "Te rugăm să încerci din nou sau să ne scrii direct pe e-mail."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Hai să stăm de vorbă",
+    "intro": "Scrie-ne sau sună-ne — răspundem întrebărilor tale despre contabilitate, fiscalitate și raportare. Vorbești direct cu",
+    "introStrong": "oameni reali din echipa noastră, nu cu roboți sau AI",
+    "phoneLabel": "Telefon",
+    "phoneLandline": "fix",
+    "emailLabel": "E-mail",
+    "addressLabel": "Ne găsești aici",
+    "addressNote": "punct de lucru",
+    "registeredLabel": "Sediu social (adresă legală)",
+    "hoursLabel": "Program",
+    "hoursDays": "Luni – Vineri",
+    "hoursTodo": "[DE COMPLETAT: program de lucru, ex. 09:00 – 17:00]",
+    "mapTitle": "Harta sediului",
+    "formTitle": "Trimite-ne un mesaj",
+    "fields": {
+      "name": "Nume",
+      "email": "E-mail",
+      "phone": "Telefon (opțional)",
+      "message": "Mesaj",
+      "messagePlaceholder": "Cum te putem ajuta?"
+    },
+    "submit": "Trimite mesajul",
+    "successTitle": "Mesaj trimis",
+    "successBody": "Mulțumim pentru mesaj! Îți răspundem cât mai curând."
+  },
+  "footer": {
+    "description": "Servicii complete de contabilitate și raportare financiară pentru companii și persoane fizice.",
+    "navTitle": "Navigare",
+    "legalTitle": "Legal",
+    "regCom": "Nr. Reg. Com.",
+    "taxId": "CUI",
+    "vatPayer": "plătitor de TVA",
+    "ceccar": "Membru CECCAR — autorizație nr.",
+    "registeredOffice": "Sediu social",
+    "workplace": "Punct de lucru",
+    "privacy": "Politica de confidențialitate",
+    "cookies": "Politica de cookies",
+    "terms": "Termeni și condiții",
+    "anpcSal": "ANPC – SAL",
+    "anpcSol": "ANPC – SOL (ODR)",
+    "rights": "Toate drepturile rezervate.",
+    "legalNote": "Site de prezentare · date legale conform Reg. Com."
+  },
+  "legal": {
+    "privacyTitle": "Politica de confidențialitate",
+    "cookiesTitle": "Politica de cookies",
+    "termsTitle": "Termeni și condiții",
+    "todo": "[DE COMPLETAT: textul integral al acestei politici]",
+    "backHome": "Înapoi la pagina principală"
+  }
+}

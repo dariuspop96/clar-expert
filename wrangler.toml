@@ -1,0 +1,7 @@
+name = "clar-expert"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
+
+# Secrete (nu se comit): setează-le cu
+#   wrangler pages secret put RESEND_API_KEY
+#   wrangler pages secret put TURNSTILE_SECRET

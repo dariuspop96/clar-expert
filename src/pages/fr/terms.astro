@@ -1,0 +1,11 @@
+---
+import LegalPage from '~/components/LegalPage.astro';
+import Base from '~/layouts/Base.astro';
+import { useTranslations } from '~/i18n/utils';
+
+const t = useTranslations('fr');
+---
+
+<Base locale="fr" path="/terms" title={`${t('legal.termsTitle')} | CLAR EXPERT`}>
+  <LegalPage locale="fr" path="/terms" titleKey="termsTitle" />
+</Base>

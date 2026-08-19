@@ -8,11 +8,11 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 
-const services: { key: string; icon: IconName; featured?: boolean }[] = [
+const services: { key: string; icon: IconName }[] = [
   { key: 'accounting', icon: 'document' },
   { key: 'payroll', icon: 'people' },
   { key: 'tax', icon: 'declaration' },
-  { key: 'reporting', icon: 'chart-bars', featured: true },
+  { key: 'reporting', icon: 'chart-bars' },
   { key: 'consulting', icon: 'advisory' },
   { key: 'incorporation', icon: 'plus-circle' },
   { key: 'officeHosting', icon: 'home' },
@@ -31,12 +31,11 @@ const services: { key: string; icon: IconName; featured?: boolean }[] = [
 
     <div class="services__grid">
       {
-        services.map(({ key, icon, featured }) => (
+        services.map(({ key, icon }) => (
           <Card
             icon={icon}
             size="lg"
             title={t(`services.${key}.title`)}
-            badge={featured ? t('services.featuredBadge') : undefined}
           >
             {t(`services.${key}.desc`)}
           </Card>

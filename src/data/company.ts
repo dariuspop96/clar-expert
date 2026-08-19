@@ -6,7 +6,7 @@ export const company = {
   legalName: 'CL Accounting Reporting SRL',
   brandName: 'CLAR EXPERT',
   tagline: 'accounting & reporting',
-  regCom: 'J40/16996/2020',
+  regCom: 'J2020016996403',
   vatId: 'RO 35695768',
   taxId: '35695768',
   vatPayer: true,
@@ -14,7 +14,6 @@ export const company = {
   foundedYear: 2020,
   email: 'office@clar-expert.com',
   phones: [
-    { display: '0756 093 660', tel: '+40756093660', type: 'mobile' },
     { display: '0728 008 141', tel: '+40728008141', type: 'mobile' },
     { display: '0318 220 138', tel: '+40318220138', type: 'landline' },
   ],

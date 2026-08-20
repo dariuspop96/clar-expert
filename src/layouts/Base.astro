@@ -67,9 +67,17 @@ const jsonLd = {
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={localeTags[locale].replace('-', '_')} />
+    <meta property="og:image" content={new URL('/og-image-clar-expert-accent.png', Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={new URL('/og-image-clar-expert-accent.png', Astro.site)} />
 
-    <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
+    <meta name="theme-color" content="#1A1A2E" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/og-image-clar-expert-accent.png" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -32,7 +32,6 @@ export const company = {
     district: 'Sector 1',
     country: 'RO',
   },
-  // TODO de completat de client
   openingHours: null as string | null, // ex. 'Mo-Fr 09:00-17:00'
 } as const;
 

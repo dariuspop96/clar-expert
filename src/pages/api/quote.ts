@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ request, locals, redirect }) => {
     'name', 'companyName', 'email', 'phone', 'docs', 'employees', 'vat', 'details', 'locale',
   ]);
 
-  if (!form.name || !isEmail(form.email)) {
+  if (!form.name || !form.phone || !isEmail(form.email)) {
     return new Response(JSON.stringify({ error: 'invalid' }), {
       status: 422,
       headers: { 'content-type': 'application/json' },

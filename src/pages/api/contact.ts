@@ -13,7 +13,7 @@ export const POST: APIRoute = async ({ request, locals, redirect }) => {
 
   const form = readForm(data, ['name', 'email', 'phone', 'message', 'locale']);
 
-  if (!form.name || !form.message || !isEmail(form.email)) {
+  if (!form.name || !form.phone || !form.message || !isEmail(form.email)) {
     return new Response(JSON.stringify({ error: 'invalid' }), {
       status: 422,
       headers: { 'content-type': 'application/json' },
